@@ -1,0 +1,33 @@
+---
+title: "lab2_david"
+author: "David Segan"
+date: "1/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(janitor)
+library(naniar)
+library(VIM)
+library(skimr)
+library(ggfortify)
+library(here)
+```
+
+## 1. Get some data
+
+```{r}
+ca_pb <- read_csv(here("data", "ca_pollution_burden.csv"))
+
+ca_dem <- read_csv(here("data", "ca_census_demographics_2010.csv"))
+```
+
+## 2. Some data cleaning & wrangling
+
+```{r}
+ca_pb_nopct <- ca_pb %>% 
+  clean_names()
+```
+
